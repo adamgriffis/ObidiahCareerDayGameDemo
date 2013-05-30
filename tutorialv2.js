@@ -193,9 +193,9 @@ $(function(){
 	enemies[2]["explode"]	= new $.gQ.Animation({imageURL: "bossy_explode.png", numberOfFrame: 9, delta: 100, rate: 60, type: $.gQ.ANIMATION_VERTICAL | $.gQ.ANIMATION_CALLBACK});
 	
 	// Weapon missile:
-	missile["player"] = new $.gQ.Animation({imageURL: "player_missile.png", numberOfFrame: 6, delta: 10, rate: 90, type: $.gQ.ANIMATION_VERTICAL});
+	missile["player"] = new $.gQ.Animation({imageURL: "lance.png"});
 	missile["enemies"] = new $.gQ.Animation({imageURL: "enemy_missile.png", numberOfFrame: 6, delta: 15, rate: 90, type: $.gQ.ANIMATION_VERTICAL});
-	missile["playerexplode"] = new $.gQ.Animation({imageURL: "player_missile_explode.png" , numberOfFrame: 8, delta: 23, rate: 90, type: $.gQ.ANIMATION_VERTICAL | $.gQ.ANIMATION_CALLBACK});
+	missile["playerexplode"] = new $.gQ.Animation({imageURL: "lance_explode.png" , numberOfFrame: 8, delta: 23, rate: 90, type: $.gQ.ANIMATION_VERTICAL | $.gQ.ANIMATION_CALLBACK});
 	missile["enemiesexplode"] = new $.gQ.Animation({imageURL: "enemy_missile_explode.png" , numberOfFrame: 6, delta: 15, rate: 90, type: $.gQ.ANIMATION_VERTICAL | $.gQ.ANIMATION_CALLBACK});
 	
 	// Initialize the game:
@@ -360,7 +360,7 @@ $(function(){
 								}
 							})
 						$(this).setAnimation(missile["playerexplode"], function(node){$(node).remove();});
-						$(this).css("width", 38);
+						$(this).css("width", 56);
 						$(this).css("height", 23);
 						$(this).y(-7, true);
 						$(this).removeClass("playerMissiles");
@@ -453,7 +453,7 @@ $(function(){
 					var playerposy = $("#player").y();
 					missileCounter = (missileCounter + 1) % 100000;
 					var name = "playerMissle_"+missileCounter;
-					$("#playerMissileLayer").addSprite(name,{animation: missile["player"], posx: playerposx + 90, posy: playerposy + 14, width: 36,height: 10});
+					$("#playerMissileLayer").addSprite(name,{animation: missile["player"], posx: playerposx + 90, posy: playerposy + 14, width: 56,height: 10});
 					$("#"+name).addClass("playerMissiles")
 					break;
 			}
